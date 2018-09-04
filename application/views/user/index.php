@@ -11,6 +11,9 @@
     <link href="<?= base_url('user_assets/css/animate.css');?>" rel="stylesheet">
 	<link href="<?= base_url('user_assets/css/main.css');?>" rel="stylesheet">
 	<link href="<?= base_url('user_assets/css/responsive.css');?>" rel="stylesheet">
+  	<script src="<?= base_url('user_assets/js/jquery.js'); ?>"></script>
+	<script src="<?= base_url('user_assets/js/ajax_call.js');?>"></script>
+    
 </head>
 
 <body>
@@ -30,10 +33,10 @@
 						<div class="panel-group category-products" id="accordian"><!--category-products-->
 							<div class="panel panel-default">
 								
-									<form action="" method="POST">
-									<input type="checkbox" name="black"><span style="font-size: 24px">  black</span><br>
-									<input type="checkbox" name="blue"><span style="font-size: 24px">  blue</span><br>
-									</form>
+									
+									<input type="checkbox" name="black" id="black" value="black" onclick = "colorFilter()"><span style="font-size: 20px">  black</span><br>
+									<input type="checkbox" name="blue" id="blue" value="blue" onclick = "colorFilter()"><span style="font-size: 20px">  blue</span><br>
+									
 								
 							</div>
 						</div><!--/category-products-->
@@ -43,7 +46,7 @@
 							<h2>Size</h2>
 							<div class="brands-name">
 								<form action="" method="POST">
-									<input type="checkbox" name="black"><span style="font-size: 20px">  S</span><br>
+									<input type="checkbox"  name="black"><span style="font-size: 20px">  S</span><br>
 									<input type="checkbox" name="black"><span style="font-size: 18px">  M</span><br>
 									<input type="checkbox" name="black"><span style="font-size: 20px">  L</span><br>
 									</form>
@@ -53,7 +56,7 @@
 					</div>
 				</div>
 				
-				<div class="col-sm-9 padding-right">
+				<div class="col-sm-9 padding-right FI">
 					<div class="features_items"><!--features_items-->
 						<h2 class="title text-center">T-Shirts</h2>
 						<?php foreach ($result as $item){ ?>
@@ -82,12 +85,11 @@
 			</div>
 		</div>
 	</section>
-  
-    <script src="<?= base_url('user_assets/js/jquery.js'); ?>"></script>
 	<script src="<?= base_url('user_assets/js/bootstrap.min.js'); ?>"></script>
 	<script src="<?= base_url('user_assets/js/jquery.scrollUp.min.js'); ?>"></script>
 	<script src="<?= base_url('user_assets/js/price-range.js'); ?>"></script>
     <script src="<?= base_url('user_assets/js/jquery.prettyPhoto.js'); ?>"></script>
     <script src="<?= base_url('user_assets/js/main.js'); ?>"></script>
+
 </body>
 </html>

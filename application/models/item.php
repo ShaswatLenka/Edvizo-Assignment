@@ -23,4 +23,17 @@ class Item extends CI_Model {
 		return $qry;
 	}
 
+	function color_filter($black,$blue){
+		$this->db->select();
+		// echo $black,$blue;
+		if($black != "false"){
+			$this->db->where('items.color',$black);
+		}
+		if($blue != "false"){
+			$this->db->where('items.color',$blue);
+		}
+		$qry = $this->db->get('items');
+		return $qry->result();
+	}
+
 }
