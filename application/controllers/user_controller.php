@@ -31,8 +31,8 @@ class User_controller extends CI_Controller {
 								<div class="single-products">
 										<div class="productinfo text-center">';
 									$output.= '<img src="'. base_url('assets/img/'.$item->img).'" />';
-											$output.='<h2>'.$item->price. '</h2>'
-											.'<p>'.'₹'.$item->item_name.'</p>'
+											$output.='<h2>'.'₹'.$item->price. '</h2>'
+											.'<p>'.$item->item_name.'</p>'
 									
 										.'</div>
 										<div class="product-overlay">

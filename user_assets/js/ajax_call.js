@@ -1,4 +1,5 @@
 
+//logic for color selction - to know which colors are selected
 var color_arr = [false,false];
 function colorFilter(){
 	var color_black = false; 
@@ -31,14 +32,18 @@ function colorFilter(){
 			color_black="black";
 		}
 	}
+	if(($('#black').prop("checked")!=true) && ($('#blue').prop("checked")!=true)){
+		color_blue = false;
+		color_black = false;
+		color_arr[0] = false;
+		color_arr[1] = false;
+	}
 	var color_data = [color_black,color_blue];
-	// console.log(color_black,color_blue);
 	$.ajax({
 		url:'user_controller/color_filter',
 		method:"POST",
 		data:{'color0':color_data[0],'color1':color_data[1]},
 		success : function(data){
-			//console.log(data);
 			$(".FI").html(data);
 		}
 	});
