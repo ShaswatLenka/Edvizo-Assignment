@@ -1,6 +1,7 @@
 
 //logic for color selction - to know which colors are selected
 var color_arr = [false,false];
+var size_arr = [false,false,false];
 function colorFilter(){
 	var color_black = false; 
 	var color_blue = false;
@@ -48,3 +49,58 @@ function colorFilter(){
 		}
 	});
 }
+
+function sizeFilter(){
+	var size_small = false;
+	var size_med = false;
+	var size_large = false;
+
+	if($('#S').prop("checked")==true){
+		size_small= "S";
+		size_arr[0]=true;
+	}
+	if($('#M').prop("checked")==true){
+		size_med = "M";
+		size_arr[1]=true;
+	}
+	if($('#L').prop("checked")==true){
+		size_large = "L";
+		size_arr[2] = true;
+	}
+	if($('#S').prop("checked")!=true){
+		size_small=false;
+		size_arr[0]=false;
+	}
+	if($('#M').prop("checked")!=true){
+		size_med = false;
+		size_arr[1]=false;
+	}
+	if($('#L').prop("checked")!=true){
+		size_large = false;
+		size_arr[2] = false;
+	}
+// console.log(size_small,size_med,size_large);
+$.ajax({
+		url:'user_controller/size_filter',
+		method:"POST",
+		data:{'size0':size_small,'size1':size_med,'size2':size_large},
+		success : function(data){
+			$(".FI").html(data);
+		}
+	});
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

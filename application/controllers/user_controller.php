@@ -9,9 +9,9 @@ class User_controller extends CI_Controller {
 
 	}
 	function index(){
+		$this->load->helper('url');
 		$result = $this->item->get_item();
 		//echo "<pre>"; print_r($result);
-		$this->load->helper('url');
 		$this->load->view('user/index', ['result'=> $result]);
 	}
 	
@@ -47,5 +47,41 @@ class User_controller extends CI_Controller {
 						</div>';
 					}
 		}echo $output;
+	}
+
+	function size_filter(){
+		$this->load->helper('url');
+		$size_small = $this->input->post('size0');
+		$size_med = $this->input->post('size1');
+		$size_large = $this->input->post('size2');
+		$result = $this->item->size_filter($size_small, $size_med, $size_large);
+		// print_r($result);
+		$output = "";
+		if($result){
+			$output .= '<div class="features_items"><!--features_items-->
+						<h2 class="title text-center">T-Shirts</h2>'; 
+						foreach ($result as $item){ 
+							$output .= '<div class="col-sm-4">
+							<div class="product-image-wrapper">
+								<div class="single-products">
+										<div class="productinfo text-center">';
+									$output.= '<img src="'. base_url('assets/img/'.$item->img).'" />';
+											$output.='<h2>'.'₹'.$item->price. '</h2>'
+											.'<p>'.$item->item_name.'</p>'
+									
+										.'</div>
+										<div class="product-overlay">
+											<div class="overlay-content">
+												<h2>'.'₹'.$item->price.'</h2>'
+												.'<p>'.$item->item_name.'</p>
+												<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											</div>
+										</div>
+								</div>
+							</div>
+						</div>';
+					}
+				}echo $output;
+
 	}
 }

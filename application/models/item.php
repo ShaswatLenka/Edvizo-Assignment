@@ -39,5 +39,34 @@ class Item extends CI_Model {
 		$qry = $this->db->get('items');
 		return $qry->result();
 	}
+	function size_filter($S,$M,$L){
+		if($S != "false" && $M == "false" && $L == "false"){
+			$this->db->where('items.size',$S);
+		}
+		if($M != "false" && $S == "false" && $L == "false"){
+			$this->db->where('items.size',$M);
+		}
+		if($L != "false" && $S == "false" && $M == "false"){
+			$this->db->where('items.size',$L);
+		}
+		if($S != "false" && $M != "false" && $L == "false"){
+			$sizes = array("S","M");
+			$this->db->where_in('items.size',$sizes);
+		}
+		if($S != "false" && $L != "false" && $M == "false"){
+			$sizes = array("S","L");
+			$this->db->where_in('items.size',$sizes);
+		}
+		if($M != "false" && $L != "false" && $S == "false"){
+			$sizes = array("M","L");
+			$this->db->where_in('items.size',$sizes);
+		}
+		if($S != "false" && $M != "false" && $L != "false"){
+			$sizes = array("S","M","L");
+			$this->db->where_in('items.size',$sizes);
+		}
+		$qry = $this->db->get('items');
+		return $qry->result();
+	}
 
 }

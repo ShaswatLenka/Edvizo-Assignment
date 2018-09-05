@@ -45,11 +45,9 @@
 						<div class="brands_products"><!--brands_products-->
 							<h2>Size</h2>
 							<div class="brands-name">
-								<form action="" method="POST">
-									<input type="checkbox"  name="black"><span style="font-size: 20px">  S</span><br>
-									<input type="checkbox" name="black"><span style="font-size: 18px">  M</span><br>
-									<input type="checkbox" name="black"><span style="font-size: 20px">  L</span><br>
-									</form>
+									<input id="S" type="checkbox" value="S" name="black" onclick="sizeFilter()"><span style="font-size: 20px">  S</span><br>
+									<input id="M" type="checkbox" value="M" name="black" onclick="sizeFilter()"><span style="font-size: 18px">  M</span><br>
+									<input id="L" type="checkbox" value="L" name="black" onclick="sizeFilter()"><span style="font-size: 20px">  L</span><br>
 							</div>
 						</div><!--/brands_products-->
 					
